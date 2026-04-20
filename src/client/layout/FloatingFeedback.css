@@ -1,0 +1,253 @@
+/* --- NÚT TRÒN NỔI (FAB) --- */
+.floating-button {
+    position: fixed !important;
+    bottom: 25px !important;
+    right: 25px !important;
+    width: 60px;
+    height: 60px;
+    background: #6366f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    z-index: 10000 !important;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-button:hover {
+    transform: scale(1.1);
+    background: #4f46e5;
+}
+
+/* Hiệu ứng trượt khi mở bảng */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Tùy chỉnh thanh cuộn cho toàn bộ hệ thống Feedback */
+.feedback-panel ::-webkit-scrollbar {
+    width: 6px;
+}
+.feedback-panel ::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+
+/* NỘI DUNG BÊN TRONG */
+.panel-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0; /* Để các component con tự quản lý padding */
+}
+
+/* CSS cho Landing Container */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 40px;
+}
+
+.welcome-icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.btn-primary-large {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary-large:hover {
+  background: #4f46e5;
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Tùy chỉnh thanh cuộn cho bảng */
+.feedback-panel ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.feedback-panel ::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+/* Khung xác nhận nằm giữa Modal */
+.custom-confirm-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  border-radius: 12px;
+}
+
+.confirm-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.confirm-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.btn-confirm-yes { background: #6c5ce7; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+.btn-confirm-no { background: #eee; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+
+.status-toast {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: white;
+  font-size: 14px;
+  z-index: 9999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  min-width: 200px;
+  text-align: center;
+}
+
+.status-toast.info { background: #3498db; }
+.status-toast.error { background: #e74c3c; }
+.status-toast.success { background: #2ecc71; }
+
+/* Hiệu ứng xoay cho icon loading */
+.spinner {
+  display: inline-block;
+  margin-right: 8px;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.floating-feedback-container {
+  position: relative;
+  /* Ép các thành phần con không được thoát xác */
+  contain: paint; 
+}
+/* --- Tùy chỉnh SweetAlert2 đẹp hơn --- */
+
+/* 1. Khung chứa thông báo */
+.swal-custom-popup {
+  width: 320px !important;
+  /* Thay vì height, ta dùng min-height hoặc padding */
+  height: 170px !important; 
+  padding: 1rem !important; /* Thu nhỏ khoảng cách trắng bên trong */
+  border-radius: 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+/* 2. Tiêu đề */
+.swal-custom-title {
+  margin-top: 0 !important; 
+  padding-top: 0 !important;
+  font-size: 1.1rem !important;
+}
+
+/* 3. Đoạn chữ mô tả */
+.swal-custom-text {
+  font-size: 0.85rem !important; /* Chữ mô tả nhỏ lại */
+  color: #666 !important;
+  margin-bottom: 15px !important;
+}
+
+/* 4. Nút Xác nhận (Xóa ngay) */
+.swal-confirm-btn-blue {
+  background-color: #007bff !important; /* Màu xanh của nút +Bài nộp mới */
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  border: none !important;
+  margin: 0 5px !important;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.swal-confirm-btn-blue:hover {
+  background-color: #0056b3 !important; /* Xanh đậm hơn khi hover */
+}
+
+/* 5. Nút Hủy bỏ */
+.swal-cancel-btn {
+  background-color: #f8f9fa !important;
+  color: #6c757d !important;
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  border: 1px solid #dee2e6 !important;
+  margin: 0 5px !important;
+  cursor: pointer;
+}
+
+/* Hiệu ứng khi di chuột */
+.swal-confirm-btn:hover {
+  background-color: #d63031 !important; /* Đậm hơn một chút */
+  transform: translateY(-1px);
+}
+
+.swal-cancel-btn:hover {
+  background-color: #e2e6ea !important;
+}
+.status-toast {
+    /* Quan trọng nhất: chuyển sang absolute */
+    position: absolute !important; 
+    
+    /* Căn giữa theo thẻ .panel-content */
+    top: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Đảm bảo chiều rộng không vượt quá khung chat */
+    width: 90%;
+    max-width: 400px;
+    
+    /* z-index cao hơn các tin nhắn chat nhưng thấp hơn Header tím (1001) */
+    z-index: 1000; 
+    
+    /* Style hiển thị */
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.status-toast.error { background-color: #ef4444; }
+.status-toast.info { background-color: #6366f1; }
+.status-toast.success { background-color: #10b981; }

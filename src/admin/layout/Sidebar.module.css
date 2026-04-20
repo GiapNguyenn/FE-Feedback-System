@@ -1,0 +1,86 @@
+.sidebarContainer {
+  width: 250px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0f172a, #1e293b);
+  color: #fff;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 0 12px 12px 0;
+  
+}
+
+/* Title */
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  padding-left: 10px;
+  color: #38bdf8;
+  letter-spacing: 1px;
+}
+
+/* Menu */
+.menuList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuItem {
+  margin-bottom: 6px;
+}
+
+/* Link */
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  color: #cbd5f5;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+  font-weight: 500;
+  position: relative;
+}
+
+/* Icon */
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+/* Hover */
+.navLink:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/* Active */
+.activeLink {
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  color: #fff !important;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+}
+
+/* Active indicator (viền trái) */
+.activeLink::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 8px;
+  height: 60%;
+  width: 4px;
+  background: #38bdf8;
+  border-radius: 4px;
+}
+/* Chặn cái vạch xanh đáng ghét ở mép trái */
+.sidebar-link.active, 
+.history-link-container.active {
+    border-left: none !important; 
+    outline: none !important;
+    box-shadow: inset 4px 0 0 #4f46e5; /* Nếu muốn vạch tím thì để dòng này, ko thì xóa luôn */
+}

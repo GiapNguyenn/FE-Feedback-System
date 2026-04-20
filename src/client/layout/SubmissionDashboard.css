@@ -1,0 +1,501 @@
+/* --- TỔNG THỂ LAYOUT (CHỐNG BÙI NHÙI) --- */
+.dashboard-layout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  /* Hoặc chiều cao của Modal */
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+
+/* --- SIDEBAR BÊN TRÁI --- */
+.dashboard-sidebar {
+  width: 200px;
+  min-width: 200px;
+  /* Bạn có thể điều chỉnh lại độ rộng cho cân đối */
+  max-width: 200px;
+  height: 90%;
+  /* Cố định chiều cao bằng với chiều cao màn hình */
+  display: flex;
+  flex-direction: column;
+  padding: 15px 10px;
+  background: #f8f9fa;
+  position: relative;
+  /* Giữ sidebar cố định khi cuộn main content */
+  top: 0;
+  overflow: hidden;
+}
+
+.sidebar-header h4 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.new-chat-btn {
+  width: 100%;
+  padding: 8px;
+  background: #0084ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.history-items {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.history-label {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.history-link {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+  transition: 0.2s;
+}
+
+.history-link:hover,
+.history-link.active {
+  background: #e7f3ff;
+  color: #0084ff;
+}
+
+.history-info .file-name {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- VÙNG CHÍNH BÊN PHẢI --- */
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* 🔥 cực quan trọng */
+}
+
+.chat-ai-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-header-info {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+/* --- KHU VỰC TIN NHẮN (MESSENGER STYLE) --- */
+.chat-messages-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  background: #f0f2f5;
+
+  height: auto; /* ❌ bỏ calc */
+  min-height: 0;
+}
+.message-row {
+  display: flex;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+/* AI TRÁI - USER PHẢI */
+.message-row.ai {
+  justify-content: flex-start;
+}
+
+.message-row.user {
+  justify-content: flex-end;
+}
+
+.message-bubble {
+  max-width: 85%;
+  padding: 10px 15px;
+  border-radius: 18px;
+  font-size: 0.9rem;
+  word-wrap: break-word;
+  width: fit-content;
+  position: relative;
+  line-height: 1.4;
+}
+
+.ai .message-bubble {
+  background: white;
+  color: #050505;
+  border: 1px solid #ddd;
+  border-bottom-left-radius: 4px;
+}
+
+.user .message-bubble {
+  background: #0084ff;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.msg-time {
+  font-size: 0.7rem;
+  color: #888;
+  display: block;
+  margin-top: 5px;
+}
+
+/* --- CARD LỖI TRONG BONG BÓNG CHAT --- */
+.issues-analysis-card {
+  margin-top: 10px;
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.issue-item {
+  background: #fff;
+  border-left: 4px solid #ff4d4f;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.line-number {
+  font-weight: bold;
+  color: #ff4d4f;
+  font-size: 0.8rem;
+}
+
+.suggestion-text {
+  color: #52c41a;
+  margin: 0;
+}
+
+/* --- Ô NHẬP TIN NHẮN --- */
+.chat-input-sticky {
+  padding: 10px;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.input-group-messenger {
+  display: flex;
+  background: #f0f2f5;
+  border-radius: 20px;
+  padding: 5px 15px;
+}
+
+.input-group-messenger input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 8px;
+  outline: none;
+}
+
+.btn-send-msg {
+  background: none;
+  border: none;
+  color: #0084ff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.upload-section-modern {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 1px dashed #dee2e6;
+}
+
+.upload-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.assignment-select {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  min-width: 200px;
+}
+
+.btn-choose-file {
+  padding: 10px 15px;
+  background: #fff;
+  border: 1px solid #6c5ce7;
+  color: #6c5ce7;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-choose-file:hover {
+  background: #f0eeff;
+}
+
+.btn-submit-now {
+  padding: 10px 20px;
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-submit-now:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.list-view-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.submissions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;   /* Cho phép cuộn nội dung bên trong */
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background: #fafafa;
+}
+/* Đảm bảo khu vực Upload luôn nằm bên dưới và cố định */
+.upload-section-modern {
+    margin-top: 20px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px dashed #dee2e6;
+    flex-shrink: 0; /* Không cho khối này bị co lại */
+}
+
+/* Container bao quanh mỗi mục lịch sử */
+.history-link-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin: 4px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%; 
+  box-sizing: border-box; 
+  position: relative;
+}
+
+.history-link-container:hover,
+.history-link-container.active {
+  background-color: #f0f0f0;
+  /* Hoặc màu tím nhạt tùy bạn */
+}
+
+/* Phần text bên trái */
+.history-main-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.history-info .file-name {
+  margin: 0;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Nhóm nút chức năng bên phải */
+.history-actions {
+  display: flex; /* luôn tồn tại */
+  gap: 5px;
+  padding-left: 5px;
+
+  opacity: 0; /* ❌ thay vì display none */
+  visibility: hidden;
+  transition: 0.2s;
+}
+
+/* Hiện nút khi hover vào dòng đó */
+.history-link-container:hover .history-actions {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-action-pin,
+.btn-action-delete {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #666;
+  border-radius: 4px;
+}
+
+.btn-action-pin:hover {
+  color: #f1c40f;
+}
+
+/* Màu vàng khi hover ghim */
+.btn-action-delete:hover {
+  color: #e74c3c;
+}
+
+/* Màu đỏ khi hover xoá */
+
+.btn-action-pin.pinned {
+  color: #f1c40f;
+  /* Màu vàng cố định nếu đã ghim */
+  display: flex !important;
+  /* Luôn hiện icon ghim nếu bài đó đang được ghim */
+}
+
+/* Vùng chứa lịch sử - Nơi sẽ cuộn */
+.history-items {
+  flex: 1;
+  overflow-y: auto;
+  /* Hiện thanh cuộn khi danh sách dài */
+  margin-top: 10px;
+  /* Tùy chỉnh thanh cuộn cho thanh thoát */
+}
+
+.history-items::-webkit-scrollbar {
+  width: 5px;
+}
+
+.history-items::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+/* Container chính chứa cả danh sách và upload */
+
+
+/* Vùng chứa danh sách tệp - Cho phép cuộn */
+.submissions-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+.logout-btn-bottom {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+/* Khung gợi ý sửa (Xóa cái nền xanh cũ đi, dùng nền xám trắng cho sạch) */
+.suggestion-box {
+  display: flex;
+  flex-direction: column; /* Cho nội dung xuống dòng */
+  gap: 8px;
+  background: #fdfdfd; 
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #22c55e;
+  margin-top: 10px;
+}
+
+/* Fix-content để chứa các phần */
+.fix-content {
+  display: flex;
+  flex-wrap: wrap; /* Tự xuống dòng nếu quá dài */
+  align-items: center;
+  gap: 6px;
+}
+
+/* 1. Khung tổng của từng lỗi */
+.issue-item {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 2. Khung gợi ý sửa lỗi (Quan trọng nhất để bỏ cái ghê ghê kia) */
+.suggestion-box {
+  display: flex;
+  background: #ffffff; /* Đổi sang nền trắng cho sạch */
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #22c55e; /* Vạch xanh lá đặc trưng */
+  margin-top: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* 3. Nội dung bên trong khung gợi ý */
+.fix-content {
+  display: flex;
+  flex-wrap: wrap; /* Tự động xuống hàng nếu giải thích quá dài */
+  align-items: center;
+  gap: 8px;
+  line-height: 1.6;
+}
+
+/* 4. Đoạn code highlight (Nền xám nhạt sang trọng) */
+.code-highlight {
+  background: #f1f5f9; 
+  color: #e11d48; /* Màu đỏ rose nhẹ nhàng */
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 13px;
+  border: 1px solid #cbd5e1;
+  font-weight: 500;
+}
+
+/* 5. Chữ giải thích (Cho chữ nhỏ lại và nghiêng đi) */
+.explain-text {
+  font-size: 13px;
+  color: #475569;
+  font-style: normal;
+  padding: 2px 8px;
+  background: #f8fafc; /* Nền xám rất nhẹ */
+  border-radius: 4px;
+}
+/* 6. Mũi tên ngăn cách */
+.arrow-sep {
+  color: #22c55e;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* 7. Text lỗi */
+.error-text {
+  color: #1e293b;
+  font-size: 14px;
+}
+
+

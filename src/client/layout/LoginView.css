@@ -1,0 +1,83 @@
+.login-container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 5px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  outline: none;
+}
+
+.form-container input:focus {
+  border-color: #6366f1;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  margin-top: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.form-container {
+  max-width: 400px; /* Giới hạn độ rộng form để nhìn cân đối */
+  margin: 0 auto;  /* Căn giữa form trong cái Panel to */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 50px;
+}
+
+.form-container h4 {
+  text-align: center;
+  font-size: 24px;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+.remember-me {
+  display: flex;
+  align-items: center; /* Căn giữa checkbox và chữ theo chiều dọc */
+  gap: 8px;            /* Tạo khoảng cách giữa checkbox và chữ */
+  font-size: 14px;
+  color: #64748b;      /* Màu chữ xám nhẹ cho tinh tế */
+  cursor: pointer;
+  margin-bottom: 5px;  /* Khoảng cách với nút Đăng nhập bên dưới */
+  user-select: none;   /* Ngăn việc bôi đen chữ khi click nhầm */
+}
+
+.remember-me input[type="checkbox"] {
+  width: 16px;         /* Chỉnh kích thước checkbox cho vừa vặn */
+  height: 16px;
+  margin: 0;           /* Xóa margin mặc định của trình duyệt */
+  cursor: pointer;
+  accent-color: #6366f1; /* Đổi màu xanh cho khớp với nút submit */
+}
+.remember-me:hover {
+  color: #1e293b; /* Chữ đậm lên khi di chuột vào */
+}
+.remember-me input[type="checkbox"] {
+  transition: transform 0.2s;
+}
+
+.remember-me input[type="checkbox"]:active {
+  transform: scale(1.2); /* Phồng lên nhẹ khi click */
+}

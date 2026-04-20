@@ -1,0 +1,431 @@
+/* --- CONTAINER CHÍNH --- */
+.tableContainer {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+/* --- HEADER (Title + Search + Filter + Button) --- */
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.tableHeader h2 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.searchFilterGroup {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* 1. Div bọc ngoài phải có display: flex để icon và input nằm cùng hàng */
+.searchWrapper {
+  position: relative;
+  display: flex;       /* 👈 BẮT BUỘC PHẢI CÓ */
+  align-items: center; /* Để icon và input căn giữa theo chiều dọc */
+  width: 100%;
+  max-width: 300px;
+}
+
+/* 2. Icon Search ghim vị trí ở bên trái */
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  /* top, transform không cần nữa nếu cha đã có align-items: center */
+  color: #94a3b8;
+  pointer-events: none; /* Click xuyên qua icon vào input */
+  z-index: 10;          /* Đảm bảo icon nằm trên input */
+}
+
+/* 3. Ô Input phải có padding trái lớn để không đè chữ lên icon */
+.searchInput {
+  width: 100%;
+  height: 40px;
+  padding: 0 15px 0 42px; /* 👈 Padding trái 42px */
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  outline: none;
+}
+
+/* --- NÚT THÊM THÀNH VIÊN --- */
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #4f46e5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+}
+
+.addBtn:hover {
+  background-color: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* --- BẢNG DỮ LIỆU --- */
+.customTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.customTable th {
+  background-color: #f8fafc;
+  color: #64748b;
+  font-weight: 600;
+  padding: 14px 16px;
+  border-bottom: 2px solid #e2e8f0;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+
+.customTable td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.customTable tr:hover {
+  background-color: #f8fafc;
+}
+
+/* --- BADGES (VAI TRÒ) --- */
+.badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
+}
+
+.admin { background-color: #fee2e2; color: #ef4444; }
+.teacher { background-color: #e0f2fe; color: #0ea5e9; }
+.student { background-color: #dcfce7; color: #22c55e; }
+.defaultBadge { background-color: #f1f5f9; color: #64748b; }
+
+/* --- NÚT THAO TÁC (Sửa/Xóa) --- */
+.editBtn, .deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  margin-right: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.editBtn { color: #4f46e5; }
+.editBtn:hover { background-color: #eef2ff; }
+
+.deleteBtn { color: #ef4444; }
+.deleteBtn:hover { background-color: #fef2f2; }
+
+/* --- MODAL (Sửa & Thêm mới) --- */
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.editForm {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.editForm h3 {
+  margin: 0 0 20px 0;
+  color: #1e293b;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.editForm label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #475569;
+  font-size: 13px;
+}
+
+.editForm input, .editForm select {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.editForm input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.editFormActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.saveBtn { background-color: #4f46e5; color: white; }
+.saveBtn:hover { background-color: #4338ca; }
+
+.cancelBtn { background-color: #f1f5f9; color: #475569; }
+.cancelBtn:hover { background-color: #e2e8f0; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+/* Tối ưu thẻ Badge Vai trò giống hệt ảnh mong muốn */
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  text-transform: capitalize;
+}
+
+/* Màu sắc cụ thể cho từng vai trò */
+.admin {
+  background-color: #fee2e2;
+  color: #ef4444; /* Đỏ nhạt */
+}
+
+.teacher {
+  background-color: #e0f2fe;
+  color: #0ea5e9; /* Xanh dương nhạt */
+}
+
+.student {
+  background-color: #dcfce7;
+  color: #22c55e; /* Xanh lá nhạt */
+}
+
+.defaultBadge {
+  background-color: #f1f5f9;
+  color: #94a3b8; /* Xám */
+}
+
+/* Tối ưu các nút thao tác (Sửa/Xóa) */
+.editBtn, .deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 12px;
+  padding: 0;
+  transition: color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.editBtn {
+  color: #4f46e5; /* Màu Indigo đậm */
+}
+
+.editBtn:hover {
+  color: #3730a3; /* Đậm hơn khi hover */
+  text-decoration: underline; /* Thêm gạch chân */
+}
+
+.deleteBtn {
+  color: #ef4444; /* Màu đỏ */
+}
+
+.deleteBtn:hover {
+  color: #b91c1c; /* Đậm hơn khi hover */
+  text-decoration: underline;
+}
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #4f46e5; /* Màu Indigo chủ đạo */
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+  white-space: nowrap;
+}
+
+.addBtn:hover {
+  background-color: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+}
+
+.addBtn:active {
+  transform: translateY(0);
+}
+
+/* Nút "Đăng ký" bên trong Modal */
+.saveBtn {
+  background-color: #4f46e5;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: auto; /* Để nút không bị dài hết cỡ */
+}
+
+.saveBtn:hover {
+  background-color: #4338ca;
+}
+
+/* Nút "Hủy" bên trong Modal */
+.cancelBtn {
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelBtn:hover {
+  background-color: #e2e8f0;
+}
+
+/* Khung chứa 2 nút trong Modal để căn chỉnh */
+.editFormActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+/* Khung chứa nút trong modal */
+.editFormActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px; /* Tạo khoảng cách giữa 2 nút */
+  margin-top: 25px;
+}
+
+/* Nút Đăng ký (Lưu) */
+.saveBtn {
+  background-color: #4f46e5;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.saveBtn:hover {
+  background-color: #4338ca;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Nút Hủy */
+.cancelBtn {
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.customTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.customTable th {
+  background-color: #4f46e5;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.customTable td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 25px;
+  padding-bottom: 10px;
+}
+
+

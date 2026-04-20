@@ -1,0 +1,139 @@
+.dashboardContainer {
+  padding: 20px;
+  background-color: #f8fafc;
+}
+
+/* Thẻ thống kê con số */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.statCard {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  text-align: center;
+  border-bottom: 4px solid #4f46e5;
+}
+
+.statCard h3 {
+  font-size: 28px;
+  margin: 0;
+  color: #1e293b;
+}
+
+.statCard p {
+  color: #64748b;
+  margin: 5px 0 0;
+  font-weight: 500;
+}
+
+/* Khu vực biểu đồ */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Biểu đồ đường to, biểu đồ tròn nhỏ */
+  gap: 20px;
+}
+
+.chartBox {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  min-height: 350px;
+}
+
+.chartBox h4 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #334155;
+}
+.dashboardContainer {
+  padding: 24px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.statCard {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-align: center;
+  border-bottom: 4px solid #4f46e5;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.chartBox {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* KHÔNG ĐƯỢC THIẾU CÁI NÀY: Fix lỗi width -1 */
+.chartWrapper {
+  width: 100%;
+  height: 300px; 
+  position: relative;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: #ef4444;
+}
+
+.retryBtn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.container {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.cardStats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.statItem {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex: 1;
+}

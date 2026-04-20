@@ -1,0 +1,114 @@
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f1f5f9; /* Màu nền xám nhạt sang trọng */
+  color: #475569;            /* Màu chữ xám đậm */
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.backBtn:hover {
+  background-color: #e2e8f0;
+  color: #1e293b;
+  transform: translateX(-3px); /* Hiệu ứng nhích nhẹ sang trái khi hover */
+}
+
+.backBtn:active {
+  transform: scale(0.95);
+}
+.pageBtn {
+  padding: 8px 14px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  color: #64748b;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageBtn:hover:not(:disabled) {
+  border-color: #4f46e5;
+  color: #4f46e5;
+  background-color: #f8fafc;
+}
+
+.pageBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.activePage {
+  background-color: #4f46e5 !important;
+  color: white !important;
+  border-color: #4f46e5 !important;
+}
+.searchInput {
+  height: 40px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  /* Đừng để width: 100vw hay cái gì quá lớn ở đây */
+}
+
+/* Đảm bảo nút không bị co rúm lại */
+.saveBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  background-color: #4f46e5;
+  white-space: nowrap; 
+  transition: all 0.2s ease;
+  gap: 8px; /* Khoảng cách giữa icon và chữ bên trong nút */
+}
+.saveBtn:hover {
+  background-color: #4338ca; /* Đậm hơn một chút khi hover */
+  transform: translateY(-1px); /* Nhích nhẹ lên trên */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.saveBtn:active {
+  transform: translateY(0);
+}
+.searchWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px; /* Khống chế độ rộng ô search */
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.searchInput {
+  padding-left: 40px !important; /* Đẩy chữ qua để nhường chỗ cho icon */
+  width: 100%;
+}
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 25px;
+  padding: 10px 0;
+}

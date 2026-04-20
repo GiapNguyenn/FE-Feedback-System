@@ -1,0 +1,58 @@
+.container { padding: 20px; font-family: 'Inter', sans-serif; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 400px; /* Code rộng, danh sách lỗi bên phải */
+  gap: 20px;
+}
+
+.codeSection {
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.errorSection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.errorCard {
+  background: #fff5f5;
+  border-left: 4px solid #ef4444;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.lineBadge {
+  background: #ef4444;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.errorMessage { color: #b91c1c; margin-top: 10px; font-size: 14px; }
+.errorFix { color: #15803d; margin-top: 5px; font-size: 14px; font-style: italic; }
+
+.analyzeBtn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.analyzeBtn:disabled { background: #94a3b8; }
